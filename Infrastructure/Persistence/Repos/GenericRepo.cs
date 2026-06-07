@@ -5,7 +5,8 @@ using Persistence.Data;
 
 namespace Persistence.Repos
 {
-    public class GenericRepo<TEntity, Tkey>(StoreDbContext _dbContext) : IGenericRepo<TEntity, Tkey> where TEntity : BaseEntity<Tkey>
+    public class GenericRepo<TEntity, Tkey>(StoreDbContext _dbContext) :
+        IGenericRepo<TEntity, Tkey> where TEntity : BaseEntity<Tkey>
     {
         public async Task AddAsync(TEntity entity)
             => await _dbContext.Set<TEntity>().AddAsync(entity);
