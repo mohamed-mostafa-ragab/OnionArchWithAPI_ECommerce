@@ -1,4 +1,3 @@
-
 using DomainLayer.Contracts;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
