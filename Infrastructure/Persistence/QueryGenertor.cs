@@ -13,8 +13,12 @@ namespace Persistence
             var Query = BaseQuery;
             if(specifications.Criteria is not null )
                 Query = Query.Where(specifications.Criteria);
+            if(specifications.OrderBy is not null)
+                Query = Query.OrderBy(specifications.OrderBy);
+            if (specifications.OrderByDesc is not null)
+                Query = Query.OrderByDescending(specifications.OrderByDesc);
 
-            if(specifications.Includes is not null && specifications.Includes.Any())
+            if (specifications.Includes is not null && specifications.Includes.Any())
                 foreach( var include in specifications.Includes )
                     Query = Query.Include(include);
 
